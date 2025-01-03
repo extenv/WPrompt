@@ -106,25 +106,6 @@ w greet
 Hello, World!
 ```
 
-## Logs dan `no_logs`
-Tambahkan `no_logs` untuk menonaktifkan pesan eksekusi.
-
-### Contoh
-File `wprompt`:
-```plaintext
-silent: no_logs
-echo "Silent command."
----
-```
-#### Perintah
-```bash
-w silent
-```
-#### Hasil
-```
-Silent command.
-```
-
 ## Error Handling
 - Jika file `wprompt` tidak ditemukan:
   ```
