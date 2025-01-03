@@ -1,16 +1,11 @@
 
-yahaha: no_logs
+ok: no_logs
 w -v
 w creator
 ---
 
-oK_1: 
+hELLO-123: 
 echo "Hello, world!"
-echo "Welcome to W Prompt!"
----
-
-MANTAP-777: 
-echo "Hello, world! Yahaha"
 echo "Welcome to W Prompt!"
 ---
 
