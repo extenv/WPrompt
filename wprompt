@@ -1,0 +1,10 @@
+
+yahaha: no_logs
+w -v
+w creator
+---
+
+ok_1: 
+echo "Hello, world!"
+echo "Welcome to W Prompt!"
+---
