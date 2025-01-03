@@ -75,37 +75,6 @@ echo "Welcome to W Prompt!"
    w <command_name>
    ```
 
-### Contoh Eksekusi
-File `wprompt`:
-```plaintext
-mantap:
-echo "Mantap!"
----
-
-greet: no_logs
-echo "Hello, World!"
----
-```
-#### Perintah
-```bash
-w mantap
-```
-#### Hasil
-```
-Executing commands for: mantap
-Executing: echo "Mantap!"
-Mantap!
-```
-
-#### Perintah
-```bash
-w greet
-```
-#### Hasil
-```
-Hello, World!
-```
-
 ## Error Handling
 - Jika file `wprompt` tidak ditemukan:
   ```

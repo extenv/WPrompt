@@ -1,5 +1,5 @@
 {
-  "name": "wprompt",
+  "name": "wprompt-cli",
   "version": "1.0.0",
   "description": "A CLI for running common Git commands from a file",
   "main": "index.js",
