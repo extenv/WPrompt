@@ -43,7 +43,7 @@ echo "Running without logs."
 ---
 
 greet:
-echo "Hello, User!"
+echo "Hello, World!"
 echo "Welcome to W Prompt!"
 ---
 ```
@@ -61,8 +61,8 @@ echo "Welcome to W Prompt!"
   - Tidak menggunakan opsi `no_logs`, sehingga log eksekusi akan ditampilkan:
     ```
     Executing commands for: greet
-    Executing: echo "Hello, User!"
-    Hello, User!
+    Executing: echo "Hello, World!"
+    Hello, World!
     Executing: echo "Welcome to W Prompt!"
     Welcome to W Prompt!
     ```
@@ -83,7 +83,7 @@ echo "Mantap!"
 ---
 
 greet: no_logs
-echo "Hello, User!"
+echo "Hello, World!"
 ---
 ```
 #### Perintah
@@ -103,7 +103,7 @@ w greet
 ```
 #### Hasil
 ```
-Hello, User!
+Hello, World!
 ```
 
 ## Logs dan `no_logs`
