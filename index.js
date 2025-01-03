@@ -31,7 +31,7 @@ function loadWpromptConfig() {
             const commandMatch = firstLine.match(/^([\w-]+):\s*(no_logs)?$/);  // Updated regex to allow hyphen in command
 
             if (commandMatch) {
-                const commandName = commandMatch[1];
+                const commandName = commandMatch[1].toLowerCase();  // Convert to lowercase
                 const noLogsFlag = commandMatch[2] ? true : false;
 
                 // Start a new command block
@@ -79,7 +79,7 @@ else if (args.includes('creator')) {
 }
 // Handle the case when no recognized command is found
 else if (args.length > 0) {
-    const userCommand = args[0];
+    const userCommand = args[0].toLowerCase();  // Convert user input to lowercase
     const commandBlocks = loadWpromptConfig();
 
     if (commandBlocks && commandBlocks[userCommand]) {
@@ -105,7 +105,7 @@ else if (args.length > 0) {
         // Print a message if the command was not found
         console.log(`${userCommand} Prompt Not Found`);
         console.log(`Please check the wprompt file in the current directory.`);
-        console.log(`or visi for more information.`);
+        console.log(`or visit for more information.`);
     }
 } else {
     console.log("Please provide a command (e.g., w <command>)");
