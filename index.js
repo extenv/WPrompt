@@ -105,7 +105,7 @@ else if (args.length > 0) {
         // Print a message if the command was not found
         console.log(`${userCommand} Prompt Not Found`);
         console.log(`Please check the wprompt file in the current directory.`);
-        console.log(`or visit for more information.`);
+        console.log(`or visit https://github.com/extenv/WPrompt for more information.`);
     }
 } else {
     console.log("Please provide a command (e.g., w <command>)");
