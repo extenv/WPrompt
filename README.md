@@ -6,7 +6,7 @@ W Prompt adalah library CLI untuk menjalankan perintah yang didefinisikan secara
 1. Pastikan Node.js sudah terinstal.
 2. Instal library secara global:
    ```bash
-   npm install -g wprompt
+   npm install -g w-prompt
    ```
 
 ## Format File `wprompt`
