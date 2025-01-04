@@ -1,9 +1,3 @@
-
-ok: no_logs
-w -v
-w creator
----
-
 hELLO-123: 
 echo "Hello, world!"
 echo "Welcome to W Prompt!"

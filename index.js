@@ -6,10 +6,25 @@ const { execSync } = require('child_process');
 // Path to the custom configuration file (wprompt)
 const configFilePath = path.join(process.cwd(), 'wprompt');
 
+
+// ANSI color codes for terminal output
+const colors = {
+    reset: "\x1b[0m",
+    blue: "\x1b[34m",
+    green: "\x1b[32m",
+    red: "\x1b[31m",
+    cyan: "\x1b[36m"
+};
+
+// Function to apply color
+function colorize(color, text) {
+    return color + text + colors.reset;
+}
+
 // Function to load and parse the 'wprompt' file
 function loadWpromptConfig() {
     if (!fs.existsSync(configFilePath)) {
-        console.error("wprompt file not found.");
+        console.error(colorize(colors.red, "wprompt file not found."));
         return null;
     }
 
@@ -53,34 +68,21 @@ function loadWpromptConfig() {
     return commandBlocks;
 }
 
-// ANSI color codes for terminal output
-const colors = {
-    reset: "\x1b[0m",
-    blue: "\x1b[34m",
-    green: "\x1b[32m",
-    red: "\x1b[31m",
-};
-
-// Function to apply color
-function colorize(color, text) {
-    return color + text + colors.reset;
-}
-
 // Handle arguments passed via CLI
 const args = process.argv.slice(2);
 
 // Check for version flag
 if (args.includes('-h')) {
-    console.log("Panduan penggunaan W Prompt:");
-    console.log("w <command> : Menjalankan perintah yang ada di wprompt");
-    console.log("w -h : Menampilkan panduan penggunaan W Prompt");
-    console.log("w -v : Menampilkan informasi tentang W Prompt");
+    console.log(colorize(colors.green, "W Prompt Usage Guide:\n"));
+    console.log("w <command> : Executes the command defined in the wprompt file");
+    console.log("w -h : Displays the usage guide for W Prompt");
+    console.log("w -v : Displays information about W Prompt");
 }
-// Check for w prompt flag
+// Check for version flag
 else if (args.includes('-v')) {
-    console.log("W Prompt version 1.0.2 /n");
-    console.log("W Prompt adalah package CLI untuk menjalankan perintah yang didefinisikan secara custom melalui file konfigurasi wprompt.");
-    console.log("Dibuat oleh Extenv");
+    console.log(colorize(colors.green, "W Prompt version 1.0.2 \n"));
+    console.log("W Prompt is a CLI package to execute commands \ndefined in a custom configuration file.\n");
+    console.log("Please visit https://github.com/extenv/WPrompt for more information.");
 }
 // Handle the case when no recognized command is found
 else if (args.length > 0) {
@@ -92,7 +94,7 @@ else if (args.length > 0) {
 
         // If logs are enabled, show the "Executing" messages
         if (logs) {
-            console.log(colorize(colors.blue, `Executing commands for: ${userCommand}`)); // Colored header
+            console.log(colorize(colors.cyan, `Executing commands for: ${userCommand}`)); // Colored header
         }
 
         // Execute each line in the corresponding block for the command
@@ -108,10 +110,11 @@ else if (args.length > 0) {
         });
     } else {
         // Print a message if the command was not found
-        console.log(`${userCommand} Prompt Not Found`);
+        console.log(colorize(colors.red, `'${userCommand}' prompt not found in wprompt file. \n`));
         console.log(`Please check the wprompt file in the current directory.`);
-        console.log(`or visit https://github.com/extenv/WPrompt for more information.`);
+        console.log(`or 'w -h' for usage guide.`);
     }
 } else {
     console.log("Please provide a command (e.g., w <command>)");
+    console.log(`or 'w -h' for usage guide.`);
 }
