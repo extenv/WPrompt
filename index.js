@@ -70,12 +70,17 @@ function colorize(color, text) {
 const args = process.argv.slice(2);
 
 // Check for version flag
-if (args.includes('-v')) {
-    console.log("W Prompt version 1.0");
+if (args.includes('-h')) {
+    console.log("Panduan penggunaan W Prompt:");
+    console.log("w <command> : Menjalankan perintah yang ada di wprompt");
+    console.log("w -h : Menampilkan panduan penggunaan W Prompt");
+    console.log("w -v : Menampilkan informasi tentang W Prompt");
 }
-// Check for creator flag
-else if (args.includes('creator')) {
-    console.log("W Prompt Created by Ivan Maulana");
+// Check for w prompt flag
+else if (args.includes('-v')) {
+    console.log("W Prompt version 1.0.2 /n");
+    console.log("W Prompt adalah package CLI untuk menjalankan perintah yang didefinisikan secara custom melalui file konfigurasi wprompt.");
+    console.log("Dibuat oleh Extenv");
 }
 // Handle the case when no recognized command is found
 else if (args.length > 0) {
