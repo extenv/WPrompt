@@ -73,14 +73,14 @@ const args = process.argv.slice(2);
 
 // Check for version flag
 if (args.includes('-h')) {
-    console.log(colorize(colors.green, "W Prompt Usage Guide:\n"));
+    console.log(colorize(colors.green, "W Prompt Usage Guide:"));
     console.log("w <command> : Executes the command defined in the wprompt file");
     console.log("w -h : Displays the usage guide for W Prompt");
     console.log("w -v : Displays information about W Prompt");
 }
 // Check for version flag
 else if (args.includes('-v')) {
-    console.log(colorize(colors.green, "W Prompt version 1.0.2 \n"));
+    console.log(colorize(colors.green, "W Prompt version 1.0.4 \n"));
     console.log("W Prompt is a CLI package to execute commands \ndefined in a custom configuration file.\n");
     console.log("Please visit https://github.com/extenv/WPrompt for more information.");
 }
