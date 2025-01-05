@@ -1,6 +1,6 @@
 {
   "name": "w-prompt",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A CLI for running common Git commands from a file",
   "main": "index.js",
   "bin": {
