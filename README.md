@@ -1,35 +1,28 @@
-
 # W Prompt
 
-W Prompt adalah package CLI untuk menjalankan perintah yang didefinisikan secara custom melalui file konfigurasi `wprompt`.
+W Prompt is a CLI package designed to execute custom-defined commands through a `wprompt` configuration file.
 
-## Instalasi
+## Installation
 
-1. Pastikan Node.js sudah terinstal.
+1. Make sure Node.js is installed.
 
-2. Instal package terinstall :
+2. Install the package:
 
-- Untuk Install secara Local:
+- To install locally:
 ```bash
-
 npm install w-prompt
-
 ```
-- Untuk Install secara Global:
+
+- To install globally:
 ```bash
-
 npm install -g w-prompt
-
 ```
 
-## Format File `wprompt`
+## `wprompt` File Format
 
-File `wprompt` digunakan untuk mendefinisikan perintah yang akan dijalankan. Format dasarnya:
-
-  
+The `wprompt` file is used to define commands to be executed. Its basic format is:
 
 ```plaintext
-
 command_name: [no_logs]
 
 action1
@@ -37,47 +30,35 @@ action1
 action2
 
 ---
-
 ```
 
-  
+### Format Elements
 
-### Elemen Format
+1. **`command_name:`**
 
-1.  **`command_name:`**
+   - The name of the command to be executed, e.g., `mantap` or `greet`.
 
-- Nama perintah yang akan dijalankan. Contohnya, `mantap` atau `greet`.
+   - The name is **case-insensitive**.
 
-- Nama ini **tidak peka huruf besar/kecil** (case-insensitive).
+2. **`[no_logs]`** *(optional)*
 
-  
+   - If specified after the command name, execution logs (e.g., "Executing commands for:") will be hidden.
 
-2.  **`[no_logs]`**  *(opsional)*
+   - If omitted, logs will be displayed by default.
 
-- Jika ditambahkan setelah nama perintah, log eksekusi (seperti pesan "Executing commands for:") akan disembunyikan.
+3. **`action1, action2, ...`**
 
-- Jika tidak disebutkan, log akan ditampilkan secara default.
+   - A list of commands to be executed by the CLI, written one per line.
 
-  
+   - These can be any terminal commands, such as `echo`, `w -v`, or `npm install`.
 
-3.  **`action1, action2, ...`**
+4. **`---`**
 
-- Daftar perintah yang akan dijalankan oleh CLI, ditulis satu per baris.
+   - A separator between command blocks. Each block begins with a new command name.
 
-- Perintah ini bisa berupa apa saja yang dapat dieksekusi di terminal, seperti `echo`, `w -v`, atau `npm install`.
-
-  
-
-4.  **`---`**
-
-- Pemisah antar blok perintah. Setiap blok diawali dengan nama perintah baru.
-
-  
-
-### Contoh File `wprompt`
+### Example `wprompt` File
 
 ```plaintext
-
 tEsT-123: no_logs
 
 echo "This is Testing!"
@@ -85,8 +66,6 @@ echo "This is Testing!"
 echo "Running without logs."
 
 ---
-
-  
 
 greet:
 
@@ -96,90 +75,67 @@ echo "Welcome to W Prompt!"
 
 ---
 
+git:
+git add .
+git commit -m "Wprompt Commit"
+git push -u origin main
+---
 ```
 
-  
+#### Example Explanation
 
-#### Penjelasan Contoh
+- **Block `tEsT-123`**
 
--  **Blok `tEsT-123`**
+  - Includes the `no_logs` option, so execution logs will not be displayed.
 
-- Memiliki opsi `no_logs`, sehingga log eksekusi tidak ditampilkan.
+  - The output will be:
+    ```
+    This is Testing!
+    Running without logs.
+    ```
 
-- Perintah akan mencetak:
+- **Block `greet`**
 
-```
+  - Does not use the `no_logs` option, so execution logs will be displayed:
+    ```
+    Executing commands for: greet
+    Executing: echo "Hello, World!"
+    Hello, World!
+    Executing: echo "Welcome to W Prompt!"
+    Welcome to W Prompt!
+    ```
 
-This is Testing!
+## How to Use
 
-Running without logs.
+1. Create a `wprompt` file in your working directory.
 
-```
+2. Add commands following the format.
 
-  
+3. Run the CLI:
 
--  **Blok `greet`**
+   - To execute a command from the WPrompt file:
+     ```bash
+     w <command_name>
+     ```
 
-- Tidak menggunakan opsi `no_logs`, sehingga log eksekusi akan ditampilkan:
+   - To view information about W Prompt:
+     ```bash
+     w -v
+     ```
 
-```
-
-Executing commands for: greet
-
-Executing: echo "Hello, World!"
-
-Hello, World!
-
-Executing: echo "Welcome to W Prompt!"
-
-Welcome to W Prompt!
-
-```
-
-  
-
-## Cara Menggunakan
-
-1. Buat file `wprompt` di direktori kerja.
-
-2. Tambahkan perintah sesuai format.
-
-3. Jalankan perintah:
-
-- Untuk menjalankan perintah dari file WPrompt
-```bash
-
-w <command_name>
-
-```
-- Untuk melihat informasi tentang W Prompt
-```bash
-
-w -v
-
-```
-- Untuk melihat panduan
-```bash
-
-w -h
-
-```
-
+   - To display the help guide:
+     ```bash
+     w -h
+     ```
 
 ## Error Handling
 
-- Jika file `wprompt` tidak ditemukan:
+- If the `wprompt` file is not found:
+  ```
+  wprompt file not found.
+  ```
 
-```
-
-wprompt file not found.
-
-```
-
-- Jika perintah tidak ditemukan:
-
-```
-
-<command_name> Prompt Not Found
-
-```
+- If the command is not found:
+  ```
+  <command_name> Prompt Not Found
+  ```
