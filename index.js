@@ -110,7 +110,7 @@ else if (args.length > 0) {
         });
     } else {
         // Print a message if the command was not found
-        console.log(colorize(colors.red, `'${userCommand}' prompt not found in wprompt file. \n`));
+        console.log(colorize(colors.red, `'${userCommand}' prompt not found in .wprompt file. \n`));
         console.log(`Please check the wprompt file in the current directory.`);
         console.log(`or 'w -h' for usage guide.`);
     }
