@@ -80,7 +80,7 @@ if (args.includes('-h')) {
 }
 // Check for version flag
 else if (args.includes('-v')) {
-    console.log(colorize(colors.green, "W Prompt version 1.0.4 \n"));
+    console.log(colorize(colors.green, "W Prompt version 1.0.5 \n"));
     console.log("W Prompt is a CLI package to execute commands \ndefined in a custom configuration file.\n");
     console.log("Please visit https://github.com/extenv/WPrompt for more information.");
 }

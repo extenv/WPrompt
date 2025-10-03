@@ -1,6 +1,6 @@
 # W Prompt
 
-W Prompt is a CLI package designed to execute custom-defined commands through a `wprompt` configuration file.
+W Prompt is a CLI package designed to execute custom-defined commands through a `.wprompt` configuration file.
 
 ## Installation
 
@@ -9,18 +9,20 @@ W Prompt is a CLI package designed to execute custom-defined commands through a 
 2. Install the package:
 
 - To install locally:
+
 ```bash
 npm install w-prompt
 ```
 
 - To install globally:
+
 ```bash
 npm install -g w-prompt
 ```
 
-## `wprompt` File Format
+## `.wprompt` File Format
 
-The `wprompt` file is used to define commands to be executed. Its basic format is:
+The `.wprompt` file is used to define commands to be executed. Its basic format is:
 
 ```plaintext
 command_name: [no_logs]
@@ -40,7 +42,7 @@ action2
 
    - The name is **case-insensitive**.
 
-2. **`[no_logs]`** *(optional)*
+2. **`[no_logs]`** _(optional)_
 
    - If specified after the command name, execution logs (e.g., "Executing commands for:") will be hidden.
 
@@ -56,7 +58,7 @@ action2
 
    - A separator between command blocks. Each block begins with a new command name.
 
-### Example `wprompt` File
+### Example `.wprompt` File
 
 ```plaintext
 tEsT-123: no_logs
@@ -107,18 +109,20 @@ git push -u origin main
 
 ## How to Use
 
-1. Create a `wprompt` file in your working directory.
+1. Create a `.wprompt` file in your working directory.
 
 2. Add commands following the format.
 
 3. Run the CLI:
 
-   - To execute a command from the WPrompt file:
+   - To execute a command from the .WPrompt file:
+
      ```bash
      w <command_name>
      ```
 
    - To view information about W Prompt:
+
      ```bash
      w -v
      ```
@@ -130,9 +134,10 @@ git push -u origin main
 
 ## Error Handling
 
-- If the `wprompt` file is not found:
+- If the `.wprompt` file is not found:
+
   ```
-  wprompt file not found.
+  .wprompt file not found.
   ```
 
 - If the command is not found:
