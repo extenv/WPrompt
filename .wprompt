@@ -1,5 +1,10 @@
-hELLO-123: 
-echo "Hello, world!"
+tEsT-123: no_logs
+echo "This is Testing!"
+echo "Running without logs."
+---
+
+greet:
+echo "Hello, World!"
 echo "Welcome to W Prompt!"
 ---
 
