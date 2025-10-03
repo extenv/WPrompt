@@ -4,7 +4,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 // Path to the custom configuration file (wprompt)
-const configFilePath = path.join(process.cwd(), 'wprompt');
+const configFilePath = path.join(process.cwd(), '.wprompt');
 
 
 // ANSI color codes for terminal output
@@ -24,7 +24,7 @@ function colorize(color, text) {
 // Function to load and parse the 'wprompt' file
 function loadWpromptConfig() {
     if (!fs.existsSync(configFilePath)) {
-        console.error(colorize(colors.red, "wprompt file not found."));
+        console.error(colorize(colors.red, ".wprompt file not found."));
         return null;
     }
 
@@ -80,7 +80,7 @@ if (args.includes('-h')) {
 }
 // Check for version flag
 else if (args.includes('-v')) {
-    console.log(colorize(colors.green, "W Prompt version 1.0.5 \n"));
+    console.log(colorize(colors.green, "W Prompt version 1.0.6 \n"));
     console.log("W Prompt is a CLI package to execute commands \ndefined in a custom configuration file.\n");
     console.log("Please visit https://github.com/extenv/WPrompt for more information.");
 }
